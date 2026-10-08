@@ -1,13 +1,21 @@
 import React from 'react'
-import { useEditorStore, THEMES } from '../store/editorStore'
+import { useEditorStore } from '../store/editorStore'
+import { THEMES } from '../store/editorStore'
 import { DEVICES } from '../lib/devicePresets'
 
 export default function EditorToolbar() {
-  const { deviceType, theme, setDeviceType, setTheme, updateProject, project } = useEditorStore()
+  const {
+    deviceType,
+    theme,
+    project,
+    setDeviceType,
+    setTheme,
+    updateProject,
+    saveCurrentProject
+  } = useEditorStore()
 
   return (
     <div className="editor-toolbar">
-      {/* Device selector */}
       <div className="toolbar-section">
         <label>Device</label>
         <select
@@ -23,10 +31,13 @@ export default function EditorToolbar() {
         </select>
       </div>
 
-      {/* Theme selector */}
       <div className="toolbar-section">
         <label>Theme</label>
-        <select value={theme} onChange={(e) => setTheme(e.target.value)} className="toolbar-select">
+        <select
+          value={theme}
+          onChange={(e) => setTheme(e.target.value)}
+          className="toolbar-select"
+        >
           {Object.entries(THEMES).map(([key, themeData]) => (
             <option key={key} value={key}>
               {themeData.name}
@@ -35,15 +46,13 @@ export default function EditorToolbar() {
         </select>
       </div>
 
-      {/* Text editor */}
       <div className="toolbar-section">
-        <label>App Title</label>
+        <label>App title</label>
         <input
           type="text"
           value={project.title}
           onChange={(e) => updateProject({ title: e.target.value })}
           className="toolbar-input"
-          placeholder="Enter app name"
         />
       </div>
 
@@ -54,20 +63,22 @@ export default function EditorToolbar() {
           value={project.subtitle}
           onChange={(e) => updateProject({ subtitle: e.target.value })}
           className="toolbar-input"
-          placeholder="Enter tagline"
         />
       </div>
 
       <div className="toolbar-section">
-        <label>CTA Text</label>
+        <label>CTA text</label>
         <input
           type="text"
           value={project.mainText}
           onChange={(e) => updateProject({ mainText: e.target.value })}
           className="toolbar-input"
-          placeholder="Enter button text"
         />
       </div>
+
+      <button className="btn btn-primary full-width" onClick={saveCurrentProject}>
+        Save project
+      </button>
     </div>
   )
 }
