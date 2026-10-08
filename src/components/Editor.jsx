@@ -3,8 +3,9 @@ import { useEditorStore } from '../store/editorStore'
 import MockupCanvas from './MockupCanvas'
 import TemplateGallery from './TemplateGallery'
 import ProjectList from './ProjectList'
+import UpgradePrompt from './UpgradePrompt'
 
-export default function Editor() {
+export default function Editor({ onBack }) {
   const { deviceType, theme, setDeviceType, setTheme, applyTemplate } = useEditorStore()
 
   return (
@@ -15,9 +16,12 @@ export default function Editor() {
           <p>Create beautiful app mockups in 60 seconds</p>
         </div>
 
-        <button className="toolbar-toggle" onClick={() => window.location.reload()}>
-          New project
-        </button>
+        <div className="header-actions">
+          <button className="btn btn-secondary" onClick={onBack}>Back to dashboard</button>
+          <button className="toolbar-toggle" onClick={() => window.location.reload()}>
+            New project
+          </button>
+        </div>
       </header>
 
       <div className="editor-main">
@@ -25,6 +29,7 @@ export default function Editor() {
           <div className="sidebar-content">
             <TemplateGallery onSelect={applyTemplate} />
             <ProjectList />
+            <UpgradePrompt />
           </div>
         </aside>
 
@@ -66,7 +71,12 @@ export default function Editor() {
               </select>
             </div>
 
-            <MockupCanvas />
+            <div className="quick-section">
+              <label>Tips</label>
+              <div className="tip-box">
+                Keep your headline short and your CTA visible.
+              </div>
+            </div>
           </div>
         </aside>
       </div>

@@ -231,6 +231,185 @@ button {
   margin-bottom: 24px;
 }
 
+.dashboard-shell {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 28px 24px 40px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.kicker {
+  color: var(--accent-2);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.dashboard-header h1 {
+  font-size: 2.3rem;
+  margin-top: 4px;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr 300px;
+  gap: 24px;
+}
+
+.dashboard-panel,
+.dashboard-main,
+.dashboard-side {
+  background: rgba(23, 31, 54, 0.85);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.panel-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.mini-template-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.mini-template {
+  min-height: 86px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  opacity: 0.95;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.blue { background: linear-gradient(135deg, #7b9cff, #5b7cff); }
+.teal { background: linear-gradient(135deg, #55d4c2, #27b7d7); }
+.gold { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+.coral { background: linear-gradient(135deg, #f87171, #ef4444); }
+
+.dashboard-main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dashboard-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  text-align: left;
+  color: var(--text-primary);
+}
+
+.create-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, rgba(123,156,255,0.12), rgba(85,212,194,0.08));
+}
+
+.create-plus {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  background: rgba(255,255,255,0.05);
+}
+
+.create-card h3,
+.empty-card h3,
+.project-card strong {
+  margin-bottom: 4px;
+}
+
+.create-card p,
+.empty-card p,
+.project-card p {
+  color: var(--text-secondary);
+}
+
+.project-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.project-card span {
+  background: rgba(123,156,255,0.12);
+  border: 1px solid rgba(123,156,255,0.25);
+  color: var(--accent);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.upgrade-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(123,156,255,0.12), rgba(20,24,40,0.7));
+  border: 1px solid rgba(123,156,255,0.25);
+  border-radius: 14px;
+  padding: 20px 18px;
+}
+
+.upgrade-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(123,156,255,0.18);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.upgrade-card h3 {
+  margin-bottom: 12px;
+}
+
+.upgrade-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 16px;
+  color: var(--text-secondary);
+}
+
+.upgrade-card li::before {
+  content: '✓';
+  color: var(--accent-2);
+  margin-right: 8px;
+}
+
 .editor-layout {
   min-height: 100vh;
   display: flex;
@@ -256,6 +435,12 @@ button {
   margin: 4px 0 0;
   color: var(--text-secondary);
   font-size: 0.9rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
 .toolbar-toggle {
@@ -436,6 +621,15 @@ button {
   font-weight: 700;
 }
 
+.tip-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-secondary);
+  padding: 12px 10px;
+  line-height: 1.5;
+}
+
 .mockup-container {
   display: flex;
   flex-direction: column;
@@ -465,6 +659,10 @@ button {
   .editor-quick {
     display: none;
   }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 900px) {
@@ -486,13 +684,15 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .editor-header {
+  .editor-header,
+  .dashboard-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
 
-  .toolbar-toggle {
+  .toolbar-toggle,
+  .dashboard-actions {
     width: 100%;
   }
 }
