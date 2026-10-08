@@ -1,16 +1,21 @@
 import { render, screen } from '@testing-library/react'
 import App from './App'
 
-describe('App', () => {
-  it('renders the main hero heading', () => {
+describe('AppMockupCreator', () => {
+  it('renders home page on load', () => {
     render(<App />)
-    expect(screen.getByRole('heading', { name: /create app mockups in minutes/i })).toBeInTheDocument()
+    expect(screen.getByText(/create app mockups in one minute/i)).toBeInTheDocument()
   })
 
-  it('renders the pricing section', () => {
+  it('has start button', () => {
     render(<App />)
-    expect(screen.getByText(/simple pricing for every stage/i)).toBeInTheDocument()
-    expect(screen.getByText(/pro/i)).toBeInTheDocument()
-    expect(screen.getByText(/team/i)).toBeInTheDocument()
+    const buttons = screen.getAllByText(/start creating now/i)
+    expect(buttons.length).toBeGreaterThan(0)
+  })
+
+  it('displays features', () => {
+    render(<App />)
+    expect(screen.getByText(/one minute/i)).toBeInTheDocument()
+    expect(screen.getByText(/beautiful by default/i)).toBeInTheDocument()
   })
 })

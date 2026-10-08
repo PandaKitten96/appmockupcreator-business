@@ -1,17 +1,17 @@
-# Security policy
+# Security Policy
 
-## Reporting vulnerabilities
+## Reporting Vulnerabilities
 
-Please report security issues privately to the maintainer via the GitHub security advisory flow or private contact channel.
+If you discover a security vulnerability in AppMockupCreator, please report it privately to the maintainer.
 
-Do not disclose vulnerabilities publicly before they are fixed.
+Do not disclose vulnerabilities publicly until they are fixed.
 
-## Response expectations
+## Response
 
 - Acknowledge reports promptly
-- Prioritize critical issues
-- Coordinate a fix and disclosure window when appropriate
+- Fix critical issues immediately
+- Coordinate public disclosure
 
 ## Scope
 
-This repository currently covers the AppMockupCreator product MVP and associated docs.
+This applies to the AppMockupCreator codebase and infrastructure.
